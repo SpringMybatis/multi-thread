@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.ibs.zj.multi.ThreadMapper">  
+	<resultMap type="com.ibs.zj.multi.model.UserGoods" id="userGoodsMap">  
+		<id property="id" column="id"/>
+		<result property="userName" column="userName"/>  
+		<result property="goodName" column="goodName" /> 
+		<result property="goodPrice" column="goodPrice"/> 
+		<result property="goodInfo" column="goodInfo"/> 
+	</resultMap>
+	
+	<select id="queryUserGoodsByName" parameterType="java.util.HashMap" resultMap="userGoodsMap">
+		select id,userName,goodName,goodPrice,goodInfo from UserGoods where userName= #{userName}
+	</select>
+</mapper>
